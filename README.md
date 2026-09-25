@@ -17,7 +17,20 @@ Version **v0.2.5** | DIY hardware project |
 ESP32-C3 runs its own Wi-Fi access point and serves the entire remote as a single web page. Connect your phone or laptop, and control your gear from the browser.
 
 ---
+## Table of Contents
 
+- [What Is This](#what-is-this)
+- [At a Glance](#at-a-glance)
+- [Connection](#connection)
+- [Hardware](#hardware)
+- [Wiring](#wiring)
+- [Tab Layout](#tab-layout)
+- [Feature Highlights](#feature-highlights)
+- [SD Card Layout](#sd-card-layout)
+- [Flash — Web Flasher](#flash--web-flasher)
+- [Known Issues](#known-issues)
+- [Project Phase](#project-phase)
+  
 ## What Is This
 
 Remodaz Wifi turns a bare ESP32-C3 SuperMini into a fully browser-driven universal IR remote: learn buttons from almost any remote, inspect and decode IR protocols with a built-in analyzer, and drive 70+ AC brands through a structured control panel — power, mode, temp, fan, swing, turbo, and more. Everything is stored on a microSD card and served over the ESP32's own captive-portal Wi-Fi network.
@@ -114,12 +127,15 @@ UI lives entirely in the browser. Everything below wires directly to the ESP32-C
 ### IR Transmitter
 
 ```
-┌─────────────────┐              ┌──────────────────┐
-│ IR LED via      │              │   ESP32-C3       │
-│ NPN driver      │              │   SuperMini      │
-├─────────────────┤              ├──────────────────┤
-│ Base (1kΩ) ─────┼──────────────┤ GPIO 1 (36kHz TX)│
-└─────────────────┘              └──────────────────┘
+┌─────────────────┐              ┌───────────────────┐
+│ IR LED via      │              │   ESP32-C3        │
+│ NPN driver      │              │   SuperMini       │
+├─────────────────┤              ├───────────────────┤
+│ Base (1kΩ) ─────┼──────────────┤ GPIO 1 (36kHz TX) │
+│ Emitter ────────┼──────────────┤ G                 │
+│ Collector ──────┼── R (100Ω) ──┤ IR LED anode      │
+│                 │   IR LED ─── │ 3V3 or 5V(cathode)│
+└─────────────────┘              └───────────────────┘
 ```
 <img width="300" height="180" alt="image" src="https://github.com/user-attachments/assets/e8d18b33-fd9d-4aca-8e20-b8bad2cb050e" />
 
