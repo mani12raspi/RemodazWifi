@@ -127,15 +127,15 @@ UI lives entirely in the browser. Everything below wires directly to the ESP32-C
 ### IR Transmitter
 
 ```
-┌─────────────────┐              ┌───────────────────┐
-│ IR LED via      │              │   ESP32-C3        │
-│ NPN driver      │              │   SuperMini       │
-├─────────────────┤              ├───────────────────┤
-│ Base (1kΩ) ─────┼──────────────┤ GPIO 1 (36kHz TX) │
-│ Emitter ────────┼──────────────┤ G                 │
-│ Collector ──────┼── R (100Ω) ──┤ IR LED anode      │
-│                 │   IR LED ─── │ 3V3 or 5V(cathode)│
-└─────────────────┘              └───────────────────┘
+┌─────────────────┐              ┌──────────────────┐
+│ IR LED via      │              │   ESP32-C3       │
+│ NPN driver      │              │   SuperMini      │
+├─────────────────┤              ├──────────────────┤
+│ Base (1kΩ) ─────┼──────────────┤ GPIO 1 (36kHz TX)│
+│ Emitter ────────┼──────────────┤ G                │
+│ Collector ──────┼──────────────| IR LED cathode   │
+│                 │              | IR LED anode ──── R(100Ω) ─── 3V3 or 5V |
+└─────────────────┘              └──────────────────┘
 ```
 <img width="300" height="180" alt="image" src="https://github.com/user-attachments/assets/e8d18b33-fd9d-4aca-8e20-b8bad2cb050e" />
 
