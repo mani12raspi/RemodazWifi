@@ -1,8 +1,10 @@
-<img width="1983" height="780" alt="13b40e0c-e108-4aec-a61a-226f0b6b80cb" src="https://github.com/user-attachments/assets/afe2f3be-a9e5-4e33-bef9-86643a1c4661" />
-
 # 📡 Remodaz Wifi
 
-**Web-based universal IR remote, protocol analyzer, and AC control — built with ESP32-C3 SuperMini**
+**Web-based universal IR remote, protocol analyzer & AC control — built with ESP32-C3 SuperMini**
+
+<img width="1983" height="780" alt="13b40e0c-e108-4aec-a61a-226f0b6b80cb" src="https://github.com/user-attachments/assets/afe2f3be-a9e5-4e33-bef9-86643a1c4661" />
+
+
 
 Version **v0.2.5** | DIY hardware project |
 
@@ -54,7 +56,7 @@ The remote stores the **raw IR timing waveform** for TV/universal keys, so repla
 | IR receiver module | TSOP 1838 or equivalent 38kHz demodulated receiver |
 | IR LED | 940nm, standard 5mm IR emitter |
 | NPN transistor | e.g. S8050, to drive the IR LED from GPIO1 |
-| Base resistor | ~1kΩ, transistor base → GPIO1 |
+| Base resistor | **1kΩ**, transistor base → GPIO1 |
 | Current-limiting resistor | For the IR LED, **100Ω** is recommended or **47Ω** can be used for better IR range. chosen LED's forward current/voltage |
 | WS2812 / NeoPixel LED | Single pixel, for status feedback |
 | Hookup wire, perfboard/protoboard | Point-to-point wiring, no custom PCB required |
@@ -78,6 +80,7 @@ For untethered, battery-powered operation instead of running off USB-C power dir
 ## Wiring
 
 UI lives entirely in the browser. Everything below wires directly to the ESP32-C3 SuperMini.
+<img width="500" height="210" alt="image" src="https://github.com/user-attachments/assets/c6b9bc35-52d1-4fbc-85b1-267ab0d20065" />
 
 ### MicroSD Module
 
@@ -234,7 +237,42 @@ Flash straight from your browser. Nothing to install.
 >
 > ⚠️ **SD card:** FAT32-formatted, 8–16GB preferred — the firmware creates `/REMOTE/` and its contents automatically, nothing to pre-load.
 
-[esp web tool flashing.webm](https://github.com/user-attachments/assets/3f4f9fa2-9a7d-4a74-84e5-c529095fad45)
+| File | Flash Address |
+| --- | --- |
+| `bootloader.bin` | `0x0000` |
+| `partition-table.bin` | `0x8000` |
+| `firmware.bin` | `0x10000` |
+
+[esp web tool flashing.webm](https://github.com/user-attachments/assets/750f3da9-22a3-44a5-8bed-c26be0a3583a)
+
+
+### Troubleshooting
+
+#### ESP32C3 Port Does Not Appear
+
+Try:
+
+- A different USB data cable
+- A different USB port
+- A different computer
+- Installing the USB-to-serial driver required by your ESP32 board
+
+#### Connection Fails
+
+Try putting the ESP32 into bootloader mode:
+
+**BOOT → RESET → Release BOOT** / **While Holding the Boot Button Connect the USB**
+
+#### RemodazWifi Boots Incorrectly
+
+Verify:
+
+- The correct Remodaz firmware was selected.
+- The firmware matches your ESP32 variant.
+- The flash addresses match the firmware package.
+- All required firmware files were flashed.
+
+If necessary, erase the flash and perform a clean installation before flashing again.
 
 ### First Boot
 
@@ -256,10 +294,11 @@ Ships with zero devices — tap **+ Add device** to create your first one and st
 | Rapid device switching feels laggy | Each switch reads from the SD card; avoid rapid-firing device taps if you're on a slow/large card |
 
 ---
+### WEB Interface
+[RemodazWifi.webm](https://github.com/user-attachments/assets/bcdc60d7-ff57-4e41-89cf-6ca476c8ff61)
 
 ## Project Phase
 
 **v0.2.5** — Web UI firmware runs on ESP32-C3 SuperMini: SD-backed device/key database, IR learning with test-before-save, hold/repeat replay, IR Analyzer with protocol ID + decode, and a full AC control tab across 70+ protocols.
-
 
 **[⬆ Back to top](#-remodaz-wifi)**
