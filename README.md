@@ -265,7 +265,7 @@ Flash straight from your browser. Nothing to install.
 | `partition-table.bin` | `0x8000` |
 | `firmware.bin` | `0x10000` |
 
-[esp web tool flashing.webm](https://github.com/user-attachments/assets/750f3da9-22a3-44a5-8bed-c26be0a3583a)
+https://github.com/user-attachments/assets/0aca718a-c751-4157-98b9-6defb4e7faa1
 
 
 ### Troubleshooting
@@ -316,8 +316,11 @@ Ships with zero devices — tap **+ Add device** to create your first one and st
 | Rapid device switching feels laggy | Each switch reads from the SD card; avoid rapid-firing device taps if you're on a slow/large card |
 
 ---
-### WEB Interface
-[RemodazWifi.webm](https://github.com/user-attachments/assets/bcdc60d7-ff57-4e41-89cf-6ca476c8ff61)
+### User Interface
+
+
+https://github.com/user-attachments/assets/bc4d6f73-835c-45f6-af20-8593a4569aa4
+
 
 ## Project Phase
 
