@@ -153,6 +153,10 @@ NPN transistor (e.g. S8050) driven through a base resistor **1KΩ**, rather than
 │ GND ────────────┼──────────────┤ G                │
 └─────────────────┘              └──────────────────┘
 ```
+<div align="center">
+  <img width="400" height="225" alt="WS2812" src="https://github.com/user-attachments/assets/5d279319-76f3-4f4b-850c-059386cba4d7" />
+</div>
+
 ---
 ### Battery Power (optional)
 
@@ -165,6 +169,8 @@ NPN transistor (e.g. S8050) driven through a base resistor **1KΩ**, rather than
 ```
 
 Charge the Li-Po through the TP4056's USB-C port, feed its output into the boost module, and power the ESP32-C3 from the boost module's regulated output. Skip this section entirely if you're running the board straight off USB-C power.
+
+<img width="1649" height="954" alt="GitBoostCircuit" src="https://github.com/user-attachments/assets/7071167f-088b-4d92-b8dc-db2e6f61ce32" />
 
 ---
 
