@@ -93,7 +93,7 @@ For untethered, battery-powered operation instead of running off USB-C power dir
 ## Wiring
 
 UI lives entirely in the browser. Everything below wires directly to the ESP32-C3 SuperMini.
-<img width="500" height="210" alt="image" src="https://github.com/user-attachments/assets/c6b9bc35-52d1-4fbc-85b1-267ab0d20065" />
+<img width="450" height="270" alt="image" src="https://github.com/user-attachments/assets/88cc65c2-e616-453d-b95d-53048187cabe" />
 
 ### MicroSD Module
 
@@ -170,7 +170,7 @@ NPN transistor (e.g. S8050) driven through a base resistor **1KΩ**, rather than
 
 Charge the Li-Po through the TP4056's USB-C port, feed its output into the boost module, and power the ESP32-C3 from the boost module's regulated output. Skip this section entirely if you're running the board straight off USB-C power.
 
-<img width="1649" height="954" alt="GitBoostCircuit" src="https://github.com/user-attachments/assets/7071167f-088b-4d92-b8dc-db2e6f61ce32" />
+<img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/872affba-d735-46c3-b5ce-517b66daeb6e" />
 
 ---
 
